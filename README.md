@@ -4,6 +4,15 @@
 
 Everything runs locally. Weights download from the Hugging Face Hub on the first run and are cached after that. It needs no paid APIs and no background services such as Ollama.
 
+## Getting started on a new computer (Windows)
+
+The exe isn't stored in git, so you build it once on each computer:
+
+1. **Install Python 3.13 (64-bit)** from [python.org](https://www.python.org/downloads/windows/). In the installer, tick **Add python.exe to PATH**. Skip this step if Python 3.10–3.13 is already installed.
+2. **Double-click `Build-Dashboard.bat`.** It creates the Python environment (`.venv`) and builds `DecisionDashboard.exe`, which takes about a minute. The window stays open at the end and shows whether it worked.
+3. **Double-click `DecisionDashboard.exe`.** The first time, it offers to run **Setup**. Click **Yes** to install PyTorch and the other packages (about 1 GB, a few minutes).
+4. Pick models and datasets, then press **Start**. Each model downloads the first time it's used.
+
 ## Models
 
 The models are listed in `models.json`. Both the script and the dashboard read this file. The four built-in models are:
@@ -75,11 +84,7 @@ Double-click `DecisionDashboard.exe`, or run `.venv\Scripts\python.exe dashboard
 
 The dashboard remembers your choices in `dashboard_settings.json`. It saves the last results in `results/last_run.json` and shows them again the next time it opens.
 
-The exe contains only the dashboard window. It runs the models with the `.venv` Python in this folder, so keep the exe here. To rebuild the exe after changing `dashboard.py`, close the dashboard and run:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File build_exe.ps1
-```
+The exe contains only the dashboard window. It runs the models with the `.venv` Python in this folder, so keep the exe here. To rebuild the exe after changing `dashboard.py`, close the dashboard and double-click `Build-Dashboard.bat`.
 
 ## Run from the command line
 
