@@ -1,0 +1,6 @@
+transformers
+optimum[onnxruntime]
+torch
+pandas
+gliclass
+python-dotenv

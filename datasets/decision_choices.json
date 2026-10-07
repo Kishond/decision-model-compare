@@ -1,0 +1,73 @@
+{
+  "name": "decision_choices",
+  "description": "Mixed single-choice decision questions: support routing, sentiment, urgency, intent and agent next-step decisions.",
+  "hypothesis_template": "This message is a {}.",
+  "items": [
+    {
+      "id": "support_double_billing",
+      "state": "User message: 'I was double-billed $49.99 for my subscription this month, please issue a refund immediately.'",
+      "options": ["billing_issue", "technical_bug", "general_question", "cancellation_request"],
+      "expected": "billing_issue"
+    },
+    {
+      "id": "support_export_crash",
+      "state": "User message: 'Since the last update the app crashes every time I tap Export PDF on my iPhone.'",
+      "options": ["billing_issue", "technical_bug", "general_question", "cancellation_request"],
+      "expected": "technical_bug"
+    },
+    {
+      "id": "support_close_account",
+      "state": "User message: 'Please close my account at the end of this billing cycle, we are switching to another provider.'",
+      "options": ["billing_issue", "technical_bug", "general_question", "cancellation_request"],
+      "expected": "cancellation_request"
+    },
+    {
+      "id": "support_nonprofit_discount",
+      "state": "User message: 'Hi! Just wondering, do you offer discounts for registered non-profit organizations?'",
+      "options": ["billing_issue", "technical_bug", "general_question", "cancellation_request"],
+      "expected": "general_question"
+    },
+    {
+      "id": "review_sentiment_mixed",
+      "state": "Customer review: 'The delivery arrived two days late, but the support agent was incredibly helpful and sorted everything out.'",
+      "options": ["positive", "negative", "mixed"],
+      "expected": "mixed",
+      "hypothesis_template": "The sentiment of this review is {}."
+    },
+    {
+      "id": "incident_urgency",
+      "state": "Incident report: 'Our production database is down and none of our customers can log in.'",
+      "options": ["critical", "high", "medium", "low"],
+      "expected": "critical",
+      "hypothesis_template": "The urgency of this issue is {}."
+    },
+    {
+      "id": "route_hiring_inquiry",
+      "state": "Inbound email: 'I would like to know whether you are currently hiring backend engineers for your Berlin office.'",
+      "options": ["sales", "human_resources", "customer_support", "legal"],
+      "expected": "human_resources",
+      "hypothesis_template": "This email should be handled by the {} team."
+    },
+    {
+      "id": "intent_reschedule",
+      "state": "User message: 'Can you move my dentist appointment from Tuesday to Thursday afternoon?'",
+      "options": ["book_appointment", "reschedule_appointment", "cancel_appointment", "check_availability"],
+      "expected": "reschedule_appointment",
+      "hypothesis_template": "The user wants to {}."
+    },
+    {
+      "id": "agent_answer_ready",
+      "state": "Agent state: The user asked for the current weather in Paris. The weather tool has already returned: 18C, light rain.",
+      "options": ["call_weather_tool", "respond_to_user", "ask_clarifying_question", "escalate_to_human"],
+      "expected": "respond_to_user",
+      "hypothesis_template": "The best next action is to {}."
+    },
+    {
+      "id": "agent_ambiguous_destination",
+      "state": "Agent state: The user said 'Book me a flight to Springfield next Friday.' There are major Springfield airports in Illinois, Missouri and Massachusetts, and the user has not said which one.",
+      "options": ["search_flights", "respond_to_user", "ask_clarifying_question", "escalate_to_human"],
+      "expected": "ask_clarifying_question",
+      "hypothesis_template": "The best next action is to {}."
+    }
+  ]
+}

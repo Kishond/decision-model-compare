@@ -1,0 +1,44 @@
+{
+  "models": [
+    {
+      "key": "local_onnx_deberta",
+      "name": "DeBERTa-v3 (ONNX Runtime)",
+      "type": "zero_shot_onnx",
+      "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+      "hint": "~0.1 s/question",
+      "builtin": true
+    },
+    {
+      "key": "local_pytorch_deberta",
+      "name": "DeBERTa-v3 (PyTorch)",
+      "type": "zero_shot_pytorch",
+      "model_id": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+      "hint": "~1.4 s/question, slow",
+      "builtin": true
+    },
+    {
+      "key": "local_bge_reranker",
+      "name": "BGE Reranker Large",
+      "type": "reranker",
+      "model_id": "BAAI/bge-reranker-large",
+      "hint": "~0.3 s/question",
+      "builtin": true
+    },
+    {
+      "key": "local_gliclass",
+      "name": "GLiClass Small v1.0",
+      "type": "gliclass",
+      "model_id": "knowledgator/gliclass-small-v1.0",
+      "hint": "~0.04 s/question",
+      "builtin": true
+    },
+    {
+      "key": "custom_typeform_distilbert_base_uncased_mnli_zero_shot_onnx",
+      "name": "distilbert-base-uncased-mnli (Zero-shot NLI)",
+      "type": "zero_shot_onnx",
+      "model_id": "typeform/distilbert-base-uncased-mnli",
+      "hint": "added by you",
+      "builtin": false
+    }
+  ]
+}

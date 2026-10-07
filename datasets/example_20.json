@@ -1,0 +1,147 @@
+{
+  "name": "example_20",
+  "description": "20 example choice questions: email type, language, news topic, sentiment, customer intent, urgency, agent next-step and content moderation.",
+  "hypothesis_template": "This message is a {}.",
+  "items": [
+    {
+      "id": "email_spam",
+      "state": "Email: 'Congratulations! You have won a $1,000 gift card. Click this link within 24 hours to claim your prize.'",
+      "options": ["spam", "personal", "work", "newsletter"],
+      "expected": "spam",
+      "hypothesis_template": "This email is a {} email."
+    },
+    {
+      "id": "email_work",
+      "state": "Email: 'Hi team, the quarterly planning meeting has moved to Thursday at 10am in Room 4B. Please bring your roadmap updates.'",
+      "options": ["spam", "personal", "work", "newsletter"],
+      "expected": "work",
+      "hypothesis_template": "This email is a {} email."
+    },
+    {
+      "id": "email_newsletter",
+      "state": "Email: 'This week's roundup: 5 new recipes, our spring sale, and tips for container gardening. Unsubscribe anytime.'",
+      "options": ["spam", "personal", "work", "newsletter"],
+      "expected": "newsletter",
+      "hypothesis_template": "This email is a {} email."
+    },
+    {
+      "id": "language_french",
+      "state": "Text: 'Bonjour, je voudrais réserver une table pour deux personnes ce soir.'",
+      "options": ["english", "french", "spanish", "german"],
+      "expected": "french",
+      "hypothesis_template": "This text is written in {}."
+    },
+    {
+      "id": "news_economy",
+      "state": "Headline: 'The central bank raised interest rates by 0.25 percentage points to curb inflation.'",
+      "options": ["sports", "politics", "economy", "technology", "entertainment"],
+      "expected": "economy",
+      "hypothesis_template": "This news article is about {}."
+    },
+    {
+      "id": "news_sports",
+      "state": "Headline: 'The striker scored twice in the second half to send her team into the cup final.'",
+      "options": ["sports", "politics", "economy", "technology", "entertainment"],
+      "expected": "sports",
+      "hypothesis_template": "This news article is about {}."
+    },
+    {
+      "id": "news_technology",
+      "state": "Headline: 'The company unveiled a new smartphone chip that it says doubles battery life.'",
+      "options": ["sports", "politics", "economy", "technology", "entertainment"],
+      "expected": "technology",
+      "hypothesis_template": "This news article is about {}."
+    },
+    {
+      "id": "sentiment_negative",
+      "state": "Review: 'Worst purchase I have made all year. It broke after two days and support never replied.'",
+      "options": ["positive", "negative", "neutral"],
+      "expected": "negative",
+      "hypothesis_template": "The sentiment of this review is {}."
+    },
+    {
+      "id": "sentiment_neutral",
+      "state": "Review: 'The package arrived on Tuesday. It contained the charger and a user manual.'",
+      "options": ["positive", "negative", "neutral"],
+      "expected": "neutral",
+      "hypothesis_template": "The sentiment of this review is {}."
+    },
+    {
+      "id": "sentiment_positive",
+      "state": "Review: 'Absolutely love this blender. It is quiet, powerful and easy to clean.'",
+      "options": ["positive", "negative", "neutral"],
+      "expected": "positive",
+      "hypothesis_template": "The sentiment of this review is {}."
+    },
+    {
+      "id": "intent_track_order",
+      "state": "Customer message: 'Where is my order? I placed it last week and still do not have a tracking number.'",
+      "options": ["track_order", "return_item", "change_address", "product_question"],
+      "expected": "track_order",
+      "hypothesis_template": "The customer wants to {}."
+    },
+    {
+      "id": "intent_return",
+      "state": "Customer message: 'These shoes are too small. How do I send them back for a refund?'",
+      "options": ["track_order", "return_item", "change_address", "product_question"],
+      "expected": "return_item",
+      "hypothesis_template": "The customer wants to {}."
+    },
+    {
+      "id": "intent_change_address",
+      "state": "Customer message: 'I just moved. Can you ship my order to 22 Oak Street instead?'",
+      "options": ["track_order", "return_item", "change_address", "product_question"],
+      "expected": "change_address",
+      "hypothesis_template": "The customer wants to {}."
+    },
+    {
+      "id": "urgency_typo",
+      "state": "Bug report: 'Small typo on the About page: recieve should be receive.'",
+      "options": ["critical", "high", "medium", "low"],
+      "expected": "low",
+      "hypothesis_template": "The urgency of this issue is {}."
+    },
+    {
+      "id": "agent_use_calculator",
+      "state": "Agent state: The user asked 'What is 17% of 2,340?'. The agent has a calculator tool and a web search tool.",
+      "options": ["use_calculator", "search_web", "respond_to_user", "ask_clarifying_question"],
+      "expected": "use_calculator",
+      "hypothesis_template": "The best next action is to {}."
+    },
+    {
+      "id": "agent_search_web",
+      "state": "Agent state: The user asked who won yesterday's Champions League match. The agent has no information about recent events but has a web search tool.",
+      "options": ["use_calculator", "search_web", "respond_to_user", "ask_clarifying_question"],
+      "expected": "search_web",
+      "hypothesis_template": "The best next action is to {}."
+    },
+    {
+      "id": "agent_emergency",
+      "state": "Agent state: The user says they have sudden chest pain and trouble breathing.",
+      "options": ["respond_to_user", "search_web", "ask_clarifying_question", "escalate_to_emergency_services"],
+      "expected": "escalate_to_emergency_services",
+      "hypothesis_template": "The best next action is to {}."
+    },
+    {
+      "id": "agent_which_meeting",
+      "state": "Agent state: The user said 'Set a reminder for the meeting.' There are three meetings on their calendar today and they did not say which one.",
+      "options": ["create_reminder", "ask_clarifying_question", "respond_to_user", "search_calendar"],
+      "expected": "ask_clarifying_question",
+      "hypothesis_template": "The best next action is to {}."
+    },
+    {
+      "id": "moderation_safe",
+      "state": "Comment: 'Great tutorial, thanks for explaining it so clearly!'",
+      "options": ["safe", "harassment", "spam", "hate_speech"],
+      "expected": "safe",
+      "hypothesis_template": "This comment is {}."
+    },
+    {
+      "id": "moderation_spam",
+      "state": "Comment: 'BUY CHEAP FOLLOWERS NOW!!! Visit cheap-followers dot biz for 10,000 followers for $5!!!'",
+      "options": ["safe", "harassment", "spam", "hate_speech"],
+      "expected": "spam",
+      "hypothesis_template": "This comment is {}."
+    }
+  ]
+}

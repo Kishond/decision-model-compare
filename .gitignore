@@ -1,0 +1,15 @@
+# Python environment (large, tied to this PC; recreate with the dashboard's Setup button)
+.venv/
+__pycache__/
+
+# Secrets (Hugging Face token etc.); .env.example is the shared template
+.env
+
+# Build output from build_exe.ps1 (rebuild the exe any time)
+build/
+*.spec
+DecisionDashboard.exe
+
+# Generated per-user files
+results/
+dashboard_settings.json
